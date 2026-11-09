@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function buatForm() {
+        const form = document.createElement("form");
+        const br = document.createElement("br");
+
+        // Nama
+        const nama = document.createElement("label");
+        nama.textContent = "Siapa nama anda?";
+        nama.for = "name";
+
+        const inputNama = document.createElement("input");
+        inputNama.type = "text";
+        inputNama.required;
+        inputNama.id = "name";
+        inputNama.name = "name";
+
+        form.append(
+          nama,
+          document.createElement("br"),
+          inputNama,
+          document.createElement("br"),
+        );
+
+        // Umur
+        const umur = document.createElement("label");
+        umur.textContent = "Berapa umur anda?";
+        umur.for = "number";
+
+        const inputUmur = document.createElement("input");
+        inputUmur.type = "number";
+        inputUmur.required;
+        inputUmur.id = "number";
+        inputUmur.name = "number";
+
+        form.append(
+          umur,
+          document.createElement("br"),
+          inputUmur,
+          document.createElement("br"),
+        );
+
+        // Jenis Kelamin
+        const gender = document.createElement("label");
+        gender.textContent = "Apa jenis kelamin anda?";
+        gender.for = "gender";
+
+        form.append(gender, document.createElement("br"));
+
+        const laki = document.createElement("input");
+        laki.type = "radio";
+        laki.name = "gender";
+        laki.value = "Laki-laki";
+        laki.id = "Laki-laki";
+
+        const perempuan = document.createElement("input");
+        perempuan.type = "radio";
+        perempuan.name = "gender";
+        perempuan.value = "Perempuan";
+        perempuan.id = "Perempuan";
+
+        form.append(
+          "Laki-laki ",
+          laki,
+          " Perempuan ",
+          perempuan,
+          document.createElement("br"),
+        );
+
+        // Perokok
+        const rokok = document.createElement("label");
+        rokok.textContent = "Apakah anda perokok?";
+        rokok.for = "perokok";
+        form.append(rokok, br);
+
+        const iya = document.createElement("input");
+        iya.type = "radio";
+        iya.name = "perokok";
+        iya.value = "Ya";
+        iya.id = "perokok";
+
+        const tidak = document.createElement("input");
+        tidak.type = "radio";
+        tidak.name = "perokok";
+        tidak.value = "Tidak";
+        tidak.id = "Tidak";
+
+        form.append("Ya ", iya, " Tidak ", tidak, document.createElement("br"));
+
+        // Jenis rokok
+        const jenisRokok = document.createElement("label");
+        jenisRokok.textContent =
+          "Jika anda perokok, rokok apa yang pernah anda coba?";
+
+        form.append(jenisRokok, document.createElement("br"));
+
+        const rokokList = [
+          "Gudang Garam Filter",
+          "Lucky Strike",
+          "Marlboro",
+          "Esse",
+        ];
+
+        rokokList.forEach((item) => {
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.name = "jenisRokok";
+          checkbox.value = item;
+
+          form.append(checkbox, " " + item, document.createElement("br"));
+        });
+
+        // Submit
+        const submit = document.createElement("button");
+        submit.type = "submit";
+        submit.textContent = "Submit";
+
+        // Reset
+        const reset = document.createElement("button");
+        reset.type = "reset";
+        reset.textContent = "Reset";
+
+        form.append(submit, reset);
+
+        document.body.appendChild(form);
+
+        // Mengambil data form
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const jenisKelamin = form.querySelector(
+            'input[name="gender"]:checked',
+          );
+          const perokok = form.querySelector('input[name="perokok"]:checked');
+
+          const jenisRokok = form.querySelectorAll('input[name="jenisRokok"]:checked');
+
+          const hasilRokok = [];
+
+          jenisRokok.forEach((item) => {
+            hasilRokok.push(item.value);
+          });
+
+          console.log({
+            nama: inputNama.value,
+            umur: inputUmur.value,
+            gender: jenisKelamin ? jenisKelamin.value : "",
+            perokok: perokok ? perokok.value : "",
+            jenisRokok: hasilRokok,
+          });
+        });
+      }
+      buatForm();
+    </script>
+  </body>
+</html>
