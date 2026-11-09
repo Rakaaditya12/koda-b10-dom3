@@ -4,4 +4,4 @@
 
 Screenshot
 
-![gambar-tabel](gambar-form.png)
+![gambar-tabel](image-form.png)
