@@ -12,7 +12,6 @@
         const form = document.createElement("form");
         const br = document.createElement("br");
 
-        // Nama
         const nama = document.createElement("label");
         nama.textContent = "Siapa nama anda?";
         nama.for = "name";
@@ -30,7 +29,6 @@
           document.createElement("br"),
         );
 
-        // Umur
         const umur = document.createElement("label");
         umur.textContent = "Berapa umur anda?";
         umur.for = "number";
@@ -48,7 +46,6 @@
           document.createElement("br"),
         );
 
-        // Jenis Kelamin
         const gender = document.createElement("label");
         gender.textContent = "Apa jenis kelamin anda?";
         gender.for = "gender";
@@ -75,7 +72,6 @@
           document.createElement("br"),
         );
 
-        // Perokok
         const rokok = document.createElement("label");
         rokok.textContent = "Apakah anda perokok?";
         rokok.for = "perokok";
@@ -95,7 +91,6 @@
 
         form.append("Ya ", iya, " Tidak ", tidak, document.createElement("br"));
 
-        // Jenis rokok
         const jenisRokok = document.createElement("label");
         jenisRokok.textContent =
           "Jika anda perokok, rokok apa yang pernah anda coba?";
@@ -118,12 +113,10 @@
           form.append(checkbox, " " + item, document.createElement("br"));
         });
 
-        // Submit
         const submit = document.createElement("button");
         submit.type = "submit";
         submit.textContent = "Submit";
 
-        // Reset
         const reset = document.createElement("button");
         reset.type = "reset";
         reset.textContent = "Reset";
